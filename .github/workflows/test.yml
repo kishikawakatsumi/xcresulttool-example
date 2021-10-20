@@ -21,13 +21,7 @@ jobs:
             -destination "platform=iOS Simulator,name=iPhone 13 mini" \
             -resultBundlePath TestResults.xcresult
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: TestResults.xcresult
-          path: TestResults.xcresult
-        if: always()
-
-      - uses: kishikawakatsumi/xcresulttool@main
+      - uses: kishikawakatsumi/xcresulttool@v1.0.1
         with:
           path: TestResults.xcresult
         if: always()
