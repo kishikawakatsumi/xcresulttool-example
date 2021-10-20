@@ -18,8 +18,13 @@ jobs:
           sudo xcode-select -s /Applications/Xcode_13.0.app
 
           xcodebuild test -scheme 'xcresulttool-example' \
-            -destination "platform=iOS Simulator,name=iPhone 13" \
+            -destination "platform=iOS Simulator,name=iPhone 13 mini" \
             -resultBundlePath TestResults.xcresult
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: TestResults.xcresult
+          path: TestResults.xcresult
 
       - uses: kishikawakatsumi/xcresulttool@main
         with:
