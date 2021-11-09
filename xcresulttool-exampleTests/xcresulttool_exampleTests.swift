@@ -14,10 +14,40 @@ class xcresulttool_exampleTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+        let vc = ViewController()
+        vc.viewDidLoad()
     }
 
+    func testAttachments() throws {
+        do {
+            let attachment = XCTAttachment(string: "Test Attachment")
+            attachment.lifetime = .keepAlways
+            add(attachment)
+        }
+        do {
+            let attachment = XCTAttachment(data: "Test Attachment".data(using: .utf8)!, uniformTypeIdentifier: "public.png")
+            attachment.lifetime = .keepAlways
+            add(attachment)
+        }
+    }
 
     func testFail() throws {
+        let expect = "success"
+        XCTAssertEqual(expect, "success")
+        XCTAssertEqual(expect, "fail")
+    }
+
+    func testSkip() throws {
+        let expect = "success"
+        XCTAssertEqual(expect, "success")
+        XCTAssertEqual(expect, "fail")
+        throw XCTSkip("This test was skipped")
+    }
+
+    func testExpedtedFailures() {
+        XCTExpectFailure("Failure expected till we fix #123")
+        
         let expect = "success"
         XCTAssertEqual(expect, "success")
         XCTAssertEqual(expect, "fail")
