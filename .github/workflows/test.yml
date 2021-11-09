@@ -19,9 +19,10 @@ jobs:
 
           xcodebuild test -scheme 'xcresulttool-example' \
             -destination "platform=iOS Simulator,name=iPhone 13 mini" \
-            -resultBundlePath TestResults.xcresult
+            -resultBundlePath TestResults.xcresult \
+            -enableCodeCoverage YES
 
-      - uses: kishikawakatsumi/xcresulttool@v1.0.1
+      - uses: kishikawakatsumi/xcresulttool@coverage
         with:
           path: TestResults.xcresult
         if: always()
