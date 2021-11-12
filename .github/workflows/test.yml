@@ -19,9 +19,10 @@ jobs:
 
           xcodebuild test -scheme 'xcresulttool-example' \
             -destination "platform=iOS Simulator,name=iPhone 13" \
-            -resultBundlePath TestResults.xcresult
+            -resultBundlePath TestResults.xcresult \
+            -enableCodeCoverage=YES
 
-      - uses: kishikawakatsumi/xcresulttool@v1
+      - uses: kishikawakatsumi/xcresulttool@build-error-log
         with:
           path: TestResults.xcresult
         if: success() || failure()
