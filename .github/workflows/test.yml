@@ -18,11 +18,11 @@ jobs:
           sudo xcode-select -s /Applications/Xcode_13.0.app
 
           xcodebuild test -scheme 'xcresulttool-example' \
-            -destination "platform=iOS Simulator,name=iPhone 13 mini" \
+            -destination "platform=iOS Simulator,name=iPhone 13" \
             -resultBundlePath TestResults.xcresult \
-            -enableCodeCoverage YES
+            -enableCodeCoverage=YES
 
-      - uses: kishikawakatsumi/xcresulttool@coverage
+      - uses: kishikawakatsumi/xcresulttool@main
         with:
           path: TestResults.xcresult
-        if: always()
+        if: success() || failure()
