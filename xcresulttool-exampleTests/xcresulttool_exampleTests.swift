@@ -16,8 +16,22 @@ class xcresulttool_exampleTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-
     func testFail() throws {
+        let expect = "success"
+        XCTAssertEqual(expect, "success")
+        XCTAssertEqual(expect, "fail")
+    }
+
+    func testSkip() throws {
+        let expect = "success"
+        XCTAssertEqual(expect, "success")
+        XCTAssertEqual(expect, "fail")
+        throw XCTSkip("This test was skipped")
+    }
+
+    func testExpedtedFailures() {
+        XCTExpectFailure("Failure expected till we fix #123")
+        
         let expect = "success"
         XCTAssertEqual(expect, "success")
         XCTAssertEqual(expect, "fail")
