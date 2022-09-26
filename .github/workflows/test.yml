@@ -19,10 +19,10 @@ jobs:
 
           xcodebuild test -scheme 'xcresulttool-example' \
             -destination "platform=iOS Simulator,name=iPhone 13" \
-            -resultBundlePath TestResults.xcresult \
-            -enableCodeCoverage=YES
+            -resultBundlePath TestResults.xcresult
 
-      - uses: kishikawakatsumi/xcresulttool@build-error-log
+      - uses: kishikawakatsumi/xcresulttool@bitmovin-engineering-feature/fix-reported-line-numbers
         with:
           path: TestResults.xcresult
-        if: success() || failure()
+          upload-bundles: false
+        if: always()
