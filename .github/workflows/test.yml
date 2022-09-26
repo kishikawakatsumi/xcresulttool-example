@@ -24,4 +24,5 @@ jobs:
       - uses: kishikawakatsumi/xcresulttool@add-job-summary
         with:
           path: TestResults.xcresult
+          upload-bundles: false
         if: always()
