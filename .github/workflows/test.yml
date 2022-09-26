@@ -20,8 +20,7 @@ jobs:
           xcodebuild test -scheme 'xcresulttool-example' \
             -destination "platform=iOS Simulator,name=iPhone 13" \
             -resultBundlePath TestResults.xcresult
-
-      - uses: kishikawakatsumi/xcresulttool@add-job-summary
+      - uses: kishikawakatsumi/xcresulttool@bitmovin-engineering-feature/fix-reported-line-numbers
         with:
           path: TestResults.xcresult
           upload-bundles: false
