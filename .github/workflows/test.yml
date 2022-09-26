@@ -21,7 +21,8 @@ jobs:
             -destination "platform=iOS Simulator,name=iPhone 13" \
             -resultBundlePath TestResults.xcresult
 
-      - uses: kishikawakatsumi/xcresulttool@main
+      - uses: kishikawakatsumi/xcresulttool@bitmovin-engineering-feature/fix-reported-line-numbers
         with:
           path: TestResults.xcresult
+          upload-bundles: false
         if: always()
